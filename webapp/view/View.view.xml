@@ -1,0 +1,37 @@
+<mvc:View controllerName="fileupload.controller.View" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <f:SimpleForm editable= "true" layout= "ResponsiveGridLayout" adjustLabelSpan="false" emptySpanXL="4" 
+                emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+                <f:content>
+                    <Label text="Add File"/>
+                    <u:FileUploader id="fileUploader" multiple="true" uploadUrl="upload/" style="Emphasized" visible="{ui>/detail}" 
+                        placeholder="Select File" uploadComplete="onUpload" width="350px"/>
+                    <Label text=""/>
+                    <Button type="Default" text="Ekle" press="onAddAttachment" />
+                </f:content>
+            </f:SimpleForm>
+            <VBox>
+                <OverflowToolbar width="auto" class="sapUiResponsiveMargin">
+                    <Title id="title" text="File List ({=${file>/fileSet}.length})" level="H2" />
+                    <ToolbarSpacer />
+                </OverflowToolbar>
+                <List id="filelist" items="{file>/fileSet}" class="sapUiResponsiveContentPadding" width="auto">
+                    <items>
+                        <CustomListItem>
+                            <OverflowToolbar class="listItem">
+                                <core:Icon size="2.5rem" src="{path: 'file>type', formatter:'.formatter.fileIcon'}" 
+                                    class="fileIcon sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+                                <Link text="{file>name}" press="onDownloadAttachment" />
+                                <ToolbarSpacer />
+                                <Button icon="sap-icon://delete" type="Reject" press="onDeleteAttachment" 
+                                    class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+                            </OverflowToolbar>
+                        </CustomListItem>
+                    </items>
+                </List>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
