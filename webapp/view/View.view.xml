@@ -3,7 +3,7 @@
     xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
 	<App>
 		<pages>
-			<Page title="{i18n>title}">
+			<Page title="File Uploader Multiple">
 				<content>
 					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4"
 						emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
@@ -12,7 +12,7 @@
 							<u:FileUploader id="fileUploader" multiple="true" uploadUrl="upload/" style="Emphasized" visible="{ui>/detail}" placeholder="Select File"
 								uploadComplete="onUpload" width="350px"/>
 							<Label text=""/>
-							<Button type="Default" text="Ekle" press="onAddAttachment"/>
+							<Button type="Default" text="Add" press="onAddAttachment"/>
 						</f:content>
 					</f:SimpleForm>
 					<VBox>
