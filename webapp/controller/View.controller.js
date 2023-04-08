@@ -1,15 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "../model/formatter",
-],
-    /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
-     */
-    function (Controller, formatter) {
-        "use strict";
+	"sap/ui/core/mvc/Controller",
+	"../model/formatter"
+], function(Controller, formatter) {
+	"use strict";
 
-        return Controller.extend("fileupload.controller.View", {
-            formatter: formatter,
+	return Controller.extend("file-uploader.controller.View", {
+		formatter: formatter,
 
             onInit: function () {
 
@@ -90,5 +86,5 @@ sap.ui.define([
                 oFileModel.refresh();
                 this.getView().byId("title").setText("File List" + " (" + data.length + ")");
             }
-        });
-    });
+	});
+});
